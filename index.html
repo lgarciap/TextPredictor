@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Coursera Data Science Specialization Capstone</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Coursera Data Science Specialization Capstone">
+  <meta name="author" content="Lynette Garcia">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+<link rel=stylesheet href="./assets/css/style.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Coursera Data Science Specialization Capstone</h1>
+    <h2>Natural Language Processing</h2>
+    <p>Lynette Garcia<br/></p>
+  </hgroup>
+    <a href="https://github.com/lgarciap/TextPredictor/zipball/gh-pages" class="example">
+     Download
+    </a>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Problem.</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>People spends a lot of time typing on their mobile devices. Although mobile devices&#39;s keyboard sizes and functions has been considerably improved; typing on mobile devices can be a serious pain. So,</p></li>
+<li><p>The next time, that a mobile device user writes, the three next words, needs to be predicted</p></li>
+</ul>
+
+<h3>Data</h3>
+
+<ul>
+<li>The dataset uses three files named:
+
+<ul>
+<li><strong>en_US.blogs.txt</strong> (205 Mb of blogs texts)</li>
+<li><strong>en_US.news.txt</strong> (200 Mb of news texts)</li>
+<li><strong>en_US.twitter.txt</strong> (163 Mb of twits)</li>
+</ul></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="ddesc1" style="background:;">
+  <hgroup>
+    <h2>Preprocessing.</h2>
+  </hgroup>
+  <article data-timings="">
+    <h3>Preprocessing</h3>
+
+<p>A process of data cleaning was made before mining the files.</p>
+
+<ul>
+<li>Extra whitespace were removed.</li>
+<li>Numbers and punctuation signs were removed.</li>
+<li>English stopwords were removed.</li>
+<li>All text was converted to lowercase</li>
+</ul>
+
+<h3>Sample</h3>
+
+<p>A clean corpus containing all text files was generated, but it was to big for the computer hardware resources, so different samples were made. Tm package was used.</p>
+
+<p>Finally a 5% of the corpus was used to predict.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="ddesc2" style="background:;">
+  <hgroup>
+    <h2>Algorithm.</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>There were made several document term matrixes for each word, bigrams, trigrams and quadgrams, using quanteda package. </li>
+<li>For each, 4-grams, 3-grams and 2-grams, a data frame was constructed.</li>
+<li><a href="https://en.wikipedia.org/wiki/Kneser%E2%80%93Ney_smoothing">Kneser-Ney smoothing</a> probability (KNP) was calculated for 2-grams, 3-grams and 4-grams, and each data frame was ordered descendently, by KNP term.</li>
+<li>This probability was used to predict the next three words</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="expAn1" style="background:;">
+  <hgroup>
+    <h2>Shiny App</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>A <a href="https://lgarciap.shinyapps.io/TextPredictor/">Shiny App</a> was made. The user introduces a sentence and can choose how many words he wants to predict. </li>
+<li>A worldcloud was made to show the predicted&#39;s words frequency</li>
+</ul>
+
+<p><img src="figure/shiny.jpg" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" style="display: block; margin: auto;" ></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Problem.'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Preprocessing.'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Algorithm.'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Shiny App'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
